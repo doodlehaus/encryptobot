@@ -1,0 +1,9 @@
+<% form_for @message do |f| -%>
+  <%= f.text_area :message, 
+			:value => 'Enter a message you would like to encrypt...', 
+			:class => 'message',
+			:rows => 5,
+			:onclick => "(this.value == 'Enter a message you would like to encrypt...') ? this.value = '' : this.value = 'Enter a message you would like to encrypt...' " %><br/>
+  <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit" %>  
+<% end -%>                                       
+

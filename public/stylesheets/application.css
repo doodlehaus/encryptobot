@@ -1,0 +1,21 @@
+body{
+    background:#ccc;
+	padding-top:24px;
+}
+
+.entry_form{
+	
+
+}
+h2{
+	font-size:20px;
+	line-height:28px;
+}
+textarea.message{color:#aaa;font-size:18px;}
+.notice{
+	border:3px solid #666;
+	font-size:18px;
+	background:#ffc;
+	text-align:center;
+	padding:9px 0;
+}

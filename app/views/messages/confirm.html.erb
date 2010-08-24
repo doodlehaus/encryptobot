@@ -1,0 +1,3 @@
+<h2>You can view your message once, and only once at:<br/>
+<%="#{SITE_URL}/messages/show/#{@message.short_url}"%></h2>
+<p>In a rush? <%=link_to "Go there now", {:controller => 'messages', :action => 'show', :id => @message.short_url}%></p>

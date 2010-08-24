@@ -1,0 +1,2629 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "message" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100819002923')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("message", "updated_at", "user_id", "created_at") VALUES('hello world', '2010-08-19 00:32:48', NULL, '2010-08-19 00:32:48')[0m
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM "messages" LIMIT 1[0m
+  [4;36;1mMessage Create (0.6ms)[0m   [0;1mINSERT INTO "messages" ("message", "updated_at", "user_id", "created_at") VALUES('does this work?', '2010-08-19 00:36:52', NULL, '2010-08-19 00:36:52')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+Migrating to AddMessageHash (20100819003937)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such table: message: ALTER TABLE "message" ADD "message_hash" text[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+Migrating to AddMessageHash (20100819003937)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "messages" ADD "message_hash" text[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100819003937')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mMessage Create (0.5ms)[0m   [0;1mINSERT INTO "messages" ("message", "updated_at", "user_id", "created_at", "message_hash") VALUES(NULL, '2010-08-19 00:41:25', NULL, '2010-08-19 00:41:25', 'encrypt this is the third try')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+Migrating to AddMessageHash (20100819003937)
+Migrating to AddMessageSalt (20100819004339)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "messages" ADD "message_salt" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100819004339')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mMessage Create (0.7ms)[0m   [0;1mINSERT INTO "messages" ("message", "updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES(NULL, '2010-08-19 00:44:52', 'IKwuI+PG', NULL, '2010-08-19 00:44:52', 'encrypt I just added message_salt')[0m
+  [4;36;1mMessage Create (0.5ms)[0m   [0;1mINSERT INTO "messages" ("message", "updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES(NULL, '2010-08-19 00:47:23', 'o3Vcwk/i', NULL, '2010-08-19 00:47:23', 'ebfab70cba8cf746db01091778a63c142e7c89ba6045d16bbf89cc0d0a5bb3a7')[0m
+  [4;36;1mMessage Load (0.2ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = '--- :al
+') [0m
+  [4;35;1mMessage Load (0.8ms)[0m   [0mSELECT * FROM "messages" [0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+Migrating to AddMessageHash (20100819003937)
+Migrating to AddMessageSalt (20100819004339)
+Migrating to RemoveMessageFromMessages (20100820142239)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "message" text, "created_at" datetime, "updated_at" datetime, "message_hash" text, "message_salt" varchar(255)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;35;1mSQL (17.7ms)[0m   [0mDROP TABLE "messages"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime, "updated_at" datetime, "message_hash" text, "message_salt" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_messages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDROP TABLE "altered_messages"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TEMPORARY TABLE "altered_messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime, "updated_at" datetime, "message_hash" text, "message_salt" varchar(255)) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mDROP TABLE "messages"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime, "updated_at" datetime, "message_hash" text, "message_salt" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_messages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDROP TABLE "altered_messages"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100820142239')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Update (0.7ms)[0m   [0mUPDATE "messages" SET "message_salt" = 'HbPNaJE5', "message_hash" = 'Ö°π„#|˚ö¡8úïD∂∞ÜÃın\!ì&H≠XG', "updated_at" = '2010-08-20 14:24:26' WHERE "id" = 5[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Load (0.4ms)[0m   [0mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Load (0.4ms)[0m   [0mSELECT * FROM "messages" LIMIT 1[0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Update (0.5ms)[0m   [0mUPDATE "messages" SET "message_salt" = 'fax+0V6r', "message_hash" = 'pÙ°HNHR˘u Ñ≠öﬂi)›Q˜Ø¬E≈≥q“xøP˜', "updated_at" = '2010-08-20 14:40:11' WHERE "id" = 5[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Destroy (0.4ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 5[0m
+  [4;36;1mMessage Destroy (0.6ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 5[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Load (0.7ms)[0m   [0mSELECT * FROM "messages" [0m
+  [4;36;1mMessage Destroy (0.4ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 1[0m
+  [4;35;1mMessage Destroy (0.4ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 2[0m
+  [4;36;1mMessage Destroy (0.4ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 3[0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 4[0m
+  [4;36;1mMessage Load (0.2ms)[0m   [0;1mSELECT * FROM "messages" [0m
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-20 14:47:39', 'xzrnnsBM', NULL, '2010-08-20 14:47:39', '0~Ü‹{vàº=FüZf.5è;hûm¢©+â∑≠î±à')[0m
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" LIMIT 1[0m
+  [4;35;1mMessage Destroy (0.4ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 6[0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" LIMIT 1[0m
+  [4;35;1mMessage Create (0.5ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-20 14:50:46', 'crvRZVCG', NULL, '2010-08-20 14:50:46', '∫=2QrãB‡Ör±¶≤ê]¢B[F¿ê∫)oÛNı€')[0m
+  [4;36;1mMessage Destroy (0.6ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 7[0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 7[0m
+  [4;36;1mMessage Create (0.6ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-20 14:51:30', 'WQwAJacS', NULL, '2010-08-20 14:51:30', 'øuˇÒEU*€?wÆÏπR 4Sí;›iò¸8ﬁR')[0m
+  [4;35;1mMessage Destroy (0.5ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 8[0m
+  [4;36;1mMessage Load (0.2ms)[0m   [0;1mSELECT * FROM "messages" [0m
+  [4;35;1mMessage Create (0.6ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-20 14:52:57', 'KDIQUfYz', NULL, '2010-08-20 14:52:57', '≈}5:∂I`pü/>§ÔŸî')[0m
+  [4;36;1mMessage Destroy (0.4ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 9[0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" LIMIT 1[0m
+  [4;35;1mMessage Create (0.5ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-20 14:54:19', 'yB2TCGsR', NULL, '2010-08-20 14:54:19', 'ƒ4ÆÃÀœ‹å’Ó2Üô')[0m
+  [4;36;1mMessage Destroy (0.4ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 10[0m
+  [4;35;1mMessage Load (0.2ms)[0m   [0mSELECT * FROM "messages" LIMIT 1[0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-08-21 07:19:44) [GET]
+Rendering messages/index
+Completed in 56ms (View: 55, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-21 07:22:07) [GET]
+
+ActionController::RoutingError (No route matches "/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:22:13) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   
+5: <% end -%>
+
+    app/views/messages/new.html.erb:3
+
+Rendered rescues/_trace (51.7ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:22:59) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `messages_path' for #<ActionView::Base:0x1a55f54>) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   
+5: <% end -%>
+
+    app/views/messages/new.html.erb:3
+
+Rendered rescues/_trace (47.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:23:37) [GET]
+Rendering messages/new
+Completed in 66ms (View: 59, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:26:15) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x1a557ac>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message, :rows => 20, :cols => 50 %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:26:51) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x12ee07c>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+
+Rendered rescues/_trace (51.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:27:38) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x179aea4>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (121.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:27:39) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x187d470>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (133.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:27:39) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x1988720>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (73.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:32:29) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x1a72e38>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (55.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:32:31) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x12cb054>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (55.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:32:32) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x175e38c>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:32:32) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x184230c>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (108.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-21 07:33:04) [GET]
+Rendering messages/show
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/messages/]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:33:06) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x1840624>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (106.2ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:35:09) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `mess' for #<Message:0x188cbc8>) on line #4 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.text_area :mess %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:4
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (113.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:35:24) [GET]
+Rendering messages/new
+ERROR: compiling _run_erb_app47views47messages47new46html46erb RAISED compile error
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:6: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:10: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47messages47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Messages#new</h1>\n"
+@output_buffer.concat "<p>Find me in app/views/messages/new.html.erb</p>\n"
+ form_for @message do |f| 
+@output_buffer.concat "  "; @output_buffer.concat((# f.text_area :message ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." ).to_s); @output_buffer.concat "  \n"
+ end 
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/admin/Sites/kdqol/app/views/messages/new.html.erb:10:in `compile!'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `custom'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `respond'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:10:in `new'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:6: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:10: syntax error, unexpected kEND, expecting ')') on line #6 of app/views/messages/new.html.erb:
+3: <% form_for @message do |f| -%>
+4:   <%=# f.text_area :message %>
+5:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+6: <% end -%>
+
+    app/views/messages/new.html.erb:10:in `compile!'
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (47.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:35:33) [GET]
+Rendering messages/new
+Completed in 18ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:40:54) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x3038c4>) on line #5 of app/views/messages/new.html.erb:
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+5:   <%= f.text_area :message %>
+6:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+7: <% end -%>
+
+    app/views/messages/new.html.erb:5
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (55.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:43:03) [GET]
+
+TypeError (can't convert nil into String):
+  encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+  encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+  encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+  app/models/message.rb:9:in `message='
+  app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (92.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:43:20) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x18e3360>) on line #5 of app/views/messages/new.html.erb:
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+5:   <%= f.text_area :message %>
+6:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+7: <% end -%>
+
+    app/views/messages/new.html.erb:5
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:11:in `new'
+
+Rendered rescues/_trace (55.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:44:51) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (can't convert nil into String) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = nil %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (51.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:45:27) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (data must not be empty) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = nil.to_s %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (50.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:45:35) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (data must not be empty) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = '' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (104.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:45:36) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (data must not be empty) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = '' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:45:36) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (data must not be empty) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = '' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (50.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:45:37) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (data must not be empty) on line #3 of app/views/messages/new.html.erb:
+1: <h1>Messages#new</h1>
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% @message.message = '' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+
+    encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+    encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+    encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+    app/models/message.rb:9:in `message='
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (50.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:47:53) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x176c0e0>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (112.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:49:43) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x1871ff8>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (109.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:49:44) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x199d7d8>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (55.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:49:45) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x28cbc>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (54.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:49:45) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x12f83c4>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (55.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:49:46) [GET]
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x174caec>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Encrypting..." %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (111.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:51:49) [GET]
+Rendering messages/new
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:52:05) [GET]
+Rendering messages/new
+Completed in 21ms (View: 13, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-08-21 07:55:36) [GET]
+
+SyntaxError (/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:23: syntax error, unexpected tSTRING_BEG, expecting kEND
+       render :action 'new'
+                       ^):
+  
+
+Rendered rescues/_trace (87.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-08-21 07:55:40) [GET]
+
+SyntaxError (/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:23: syntax error, unexpected tSTRING_BEG, expecting kEND
+       render :action 'new'
+                       ^):
+  
+
+Rendered rescues/_trace (34.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-08-21 07:55:45) [GET]
+
+SyntaxError (/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:23: syntax error, unexpected tSTRING_BEG, expecting kEND
+       render :action 'new'
+                       ^):
+  
+
+Rendered rescues/_trace (34.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-21 07:55:51) [GET]
+
+SyntaxError (/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:23: syntax error, unexpected tSTRING_BEG, expecting kEND
+       render :action 'new'
+                       ^):
+  
+
+Rendered rescues/_trace (87.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-08-21 07:56:02) [GET]
+Rendering messages/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/index]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:56:05) [GET]
+Rendering messages/new
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:57:04) [GET]
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 07:57:12) [POST]
+  Parameters: {"message"=>{"message"=>"is this on?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering messages/new
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 07:58:39) [POST]
+  Parameters: {"message"=>{"message"=>"is this on?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 76ms (View: 63, DB: 0) | 200 OK [http://localhost/messages]
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 07:59:30) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 07:59:36) [POST]
+  Parameters: {"message"=>{"message"=>"is this on?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-21 08:00:06) [GET]
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:01:11) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:01:16) [POST]
+  Parameters: {"message"=>{"message"=>"this is a message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/create
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:01:44) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:01:50) [POST]
+  Parameters: {"message"=>{"message"=>"message message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+
+ActionView::MissingTemplate (Missing template messages/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mMessage Load (0.2ms)[0m   [0mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:04:08) [POST]
+  Parameters: {"message"=>{"message"=>"message message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+
+ActionView::MissingTemplate (Missing template messages/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:04:53) [POST]
+  Parameters: {"message"=>{"message"=>"message message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:05:45) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:05:50) [POST]
+  Parameters: {"message"=>{"message"=>"thsi si a message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+  [4;36;1mMessage Create (19.2ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-21 13:05:50', 'pMAIbCxQ', NULL, '2010-08-21 13:05:50', 'âÿåÚÿ¿ º≥gzxsZÁÍ≠[û^¡¸ZwYmÃŸ§')[0m
+Redirected to http://localhost:3000/messages/confirm
+Completed in 36ms (DB: 19) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-21 08:05:50) [GET]
+
+ActionController::UnknownAction (No action responded to confirm. Actions: create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:06:51) [GET]
+
+TypeError (nil is not a symbol):
+  app/models/message.rb:6
+  app/controllers/messages_controller.rb:9:in `new'
+
+Rendered rescues/_trace (44.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:07:00) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:07:12) [POST]
+  Parameters: {"message"=>{"message"=>"why doesn't this work? how do I validate it?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:07:31) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x12adef0>) on line #6 of app/views/messages/new.html.erb:
+3: <% @message.message = 'message' %>
+4: <% form_for @message do |f| -%>
+5:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+6:   <%= f.text_area :message %><br/>
+7:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit" %>  
+8: <% end -%>
+
+    app/views/messages/new.html.erb:6
+    app/views/messages/new.html.erb:4
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (56.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:08:01) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+
+ActionView::TemplateError (undefined method `message' for #<Message:0x171e7a0>) on line #5 of app/views/messages/new.html.erb:
+2: <p>Find me in app/views/messages/new.html.erb</p>
+3: <% form_for @message do |f| -%>
+4:   <%= f.label :message, "Enter the message you would like to encrypt" %><br/>
+5:   <%= f.text_area :message %><br/>
+6:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit" %>  
+7: <% end -%>
+
+    app/views/messages/new.html.erb:5
+    app/views/messages/new.html.erb:3
+    app/controllers/messages_controller.rb:10:in `new'
+
+Rendered rescues/_trace (109.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:08:19) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:08:25) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:08:29) [POST]
+  Parameters: {"message"=>{"message"=>"whassup?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-21 13:08:29', 'qb9rO4pd', NULL, '2010-08-21 13:08:29', 'HNç7X$YÙÇÏıÖëzüG')[0m
+Redirected to http://localhost:3000/messages/confirm
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-21 08:08:29) [GET]
+
+ActionController::UnknownAction (No action responded to confirm. Actions: create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM "messages" [0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:09:05) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:09:08) [POST]
+  Parameters: {"message"=>{"message"=>""}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+
+ArgumentError (data must not be empty):
+  encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+  encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+  encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+  app/models/message.rb:10:in `message='
+  app/controllers/messages_controller.rb:16:in `new'
+  app/controllers/messages_controller.rb:16:in `create'
+
+Rendered rescues/_trace (41.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:09:37) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:09:46) [POST]
+  Parameters: {"message"=>{"message"=>"whassup?"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 7, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:10:34) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:10:40) [POST]
+  Parameters: {"message"=>{"message"=>""}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+
+ArgumentError (data must not be empty):
+  encryptor (1.1.1) lib/encryptor.rb:53:in `update'
+  encryptor (1.1.1) lib/encryptor.rb:53:in `crypt'
+  encryptor (1.1.1) lib/encryptor.rb:25:in `encrypt'
+  app/models/message.rb:10:in `message='
+  app/controllers/messages_controller.rb:16:in `new'
+  app/controllers/messages_controller.rb:16:in `create'
+
+Rendered rescues/_trace (42.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:10:45) [POST]
+  Parameters: {"message"=>{"message"=>"asdfasdfasdf"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 22ms (View: 7, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-21 08:10:54) [GET]
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/messages]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:10:57) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 62ms (View: 53, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:11:01) [POST]
+  Parameters: {"message"=>{"message"=>"dfasdfasdfasfd"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-21 13:11:01', 'F0roX+kX', NULL, '2010-08-21 13:11:01', ')K˚˛j™W@Ô—Á%?d’')[0m
+Redirected to http://localhost:3000/messages/confirm
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-21 08:11:01) [GET]
+
+ActionController::UnknownAction (No action responded to confirm. Actions: create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-21 08:12:49) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-21 08:12:54) [POST]
+  Parameters: {"message"=>{"message"=>"thsi is my message"}, "submit"=>"Encrypt message", "authenticity_token"=>"Xebqa0aAG7eGA92FwYDhpYcMQlndGvwEgT/t0x9r+NY="}
+  [4;35;1mMessage Create (0.6ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-21 13:12:54', 'KsYb1W2R', NULL, '2010-08-21 13:12:54', '¿t
+Kc
+]yïéå8ŸkOº˜RoøWö+ó„WôˆO')[0m
+Redirected to http://localhost:3000/messages/confirm/14
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-21 08:12:54) [GET]
+  Parameters: {"id"=>"14"}
+
+ActionController::UnknownAction (No action responded to confirm. Actions: create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 07:50:46) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 269ms (View: 205, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 07:50:53) [POST]
+  Parameters: {"message"=>{"message"=>"This is my message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (14.1ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 12:50:53', 'zb8Ks7O2', NULL, '2010-08-22 12:50:53', 'î<-¢Û.qB∫‰e:‰ÛÒ)^Q/¨·¨µOH]Û')[0m
+Redirected to http://localhost:3000/messages/confirm/15
+Completed in 40ms (DB: 14) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:50:53) [GET]
+  Parameters: {"id"=>"15"}
+
+ActionController::UnknownAction (No action responded to confirm. Actions: create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:54:37) [GET]
+  Parameters: {"id"=>"15"}
+Rendering template within layouts/application
+Rendering messages/confirm
+ERROR: compiling _run_erb_app47views47messages47confirm46html46erb RAISED compile error
+/Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:1: syntax error, unexpected '=', expecting tASSOC
+...e.id, :action => 'show', :id = @message.id).to_s); @output_b...
+                              ^
+Function body:           def _run_erb_app47views47messages47confirm46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat((link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id = @message.id).to_s); @output_buffer.concat "</h1>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:4:in `compile!'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1338:in `perform_action_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:1: syntax error, unexpected '=', expecting tASSOC
+...e.id, :action => 'show', :id = @message.id).to_s); @output_b...
+                              ^) on line #1 of app/views/messages/confirm.html.erb:
+1: <h1><%=link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id = @message.id%></h1>
+
+    app/views/messages/confirm.html.erb:4:in `compile!'
+
+Rendered rescues/_trace (45.8ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:54:38) [GET]
+  Parameters: {"id"=>"15"}
+Rendering template within layouts/application
+Rendering messages/confirm
+ERROR: compiling _run_erb_app47views47messages47confirm46html46erb RAISED compile error
+/Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:1: syntax error, unexpected '=', expecting tASSOC
+...e.id, :action => 'show', :id = @message.id).to_s); @output_b...
+                              ^
+Function body:           def _run_erb_app47views47messages47confirm46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat((link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id = @message.id).to_s); @output_buffer.concat "</h1>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:4:in `compile!'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1338:in `perform_action_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/admin/Sites/kdqol/app/views/messages/confirm.html.erb:1: syntax error, unexpected '=', expecting tASSOC
+...e.id, :action => 'show', :id = @message.id).to_s); @output_b...
+                              ^) on line #1 of app/views/messages/confirm.html.erb:
+1: <h1><%=link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id = @message.id%></h1>
+
+    app/views/messages/confirm.html.erb:4:in `compile!'
+
+Rendered rescues/_trace (49.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:54:47) [GET]
+  Parameters: {"id"=>"15"}
+Rendering template within layouts/application
+Rendering messages/confirm
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::SITE_URL) on line #1 of app/views/messages/confirm.html.erb:
+1: <h1><%=link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id => @message.id%></h1>
+
+    app/views/messages/confirm.html.erb:1
+
+Rendered rescues/_trace (46.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:55:09) [GET]
+  Parameters: {"id"=>"15"}
+Rendering template within layouts/application
+Rendering messages/confirm
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #1 of app/views/messages/confirm.html.erb:
+1: <h1><%=link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id => @message.id%></h1>
+
+    app/views/messages/confirm.html.erb:1
+
+Rendered rescues/_trace (48.4ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 07:57:13) [GET]
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 69ms (View: 67, DB: 0) | 200 OK [http://localhost/messages/]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 07:57:16) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 1033ms (View: 220, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 07:57:27) [POST]
+  Parameters: {"message"=>{"message"=>"this is my new message. will it blend?"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+
+ActiveRecord::RecordNotFound (Couldn't find Message without an ID):
+  app/controllers/messages_controller.rb:29:in `create'
+
+Rendered rescues/_trace (38.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 07:58:51) [POST]
+  Parameters: {"message"=>{"message"=>"this is my new message. will it blend?"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (62.7ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 12:58:51', 'nFufONbo', NULL, '2010-08-22 12:58:51', '&…R◊PÏ$ôÆ\A„^0/,¿Ã%ä›vc≈ówS>6hÃ∏Hâö_Òc´e@‘QtÛ]')[0m
+Redirected to http://localhost:3000/messages/confirm/16
+Completed in 79ms (DB: 63) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:58:51) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+
+ActionView::TemplateError (can't convert Fixnum into String) on line #1 of app/views/messages/confirm.html.erb:
+1: <h1><%=link_to SITE_URL+'messages/show/'+@message.id, :action => 'show', :id => @message.id%></h1>
+
+    app/views/messages/confirm.html.erb:1
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:59:10) [GET]
+  Parameters: {"id"=>"16"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/confirm/16]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 07:59:15) [GET]
+  Parameters: {"id"=>"16"}
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/messages?id=16]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 07:59:55) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/confirm/16]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:02:12) [GET]
+  Parameters: {"id"=>"16"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 68ms (View: 59, DB: 0) | 200 OK [http://localhost/messages?id=16]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:03:31) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+  [4;36;1mMessage Destroy (0.3ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 16[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=16]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:03:34) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 16) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=16):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (37.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:03:49) [GET]
+  Parameters: {"id"=>"15"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 15) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 15[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=15]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:03:53) [GET]
+  Parameters: {"id"=>"15"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 15) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=15):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (88.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:04:37) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 14) [0m
+  [4;36;1mMessage Destroy (0.3ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 14[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=14]
+
+
+Processing MessagesController#13 (for 127.0.0.1 at 2010-08-22 08:05:07) [GET]
+
+ActionController::UnknownAction (No action responded to 13. Actions: confirm, create, destroy, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:06:21) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:06:28) [POST]
+  Parameters: {"message"=>{"message"=>"I'm encrypting a message."}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;35;1mMessage Create (0.0ms)[0m   [0mSQLite3::SQLException: unrecognized token: "'~¶Œeû,“6": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:06:28', '8APemVmX', NULL, '2010-08-22 13:06:28', '~¶Œeû,“6 u•ÑÇç)õig2.G?Õ”≈åîEï')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "'~¶Œeû,“6": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:06:28', '8APemVmX', NULL, '2010-08-22 13:06:28', '~¶Œeû,“6 u•ÑÇç)õig2.G?Õ”≈åîEï')):
+  app/controllers/messages_controller.rb:21:in `create'
+
+Rendered rescues/_trace (100.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:06:46) [POST]
+  Parameters: {"message"=>{"message"=>"I'm encrypting a message."}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:06:46', 'CML8pEHl', NULL, '2010-08-22 13:06:46', '¯˝ômn+©.ΩàSEèı>"òŒ[á ôˇ:°…ç∫')[0m
+Redirected to http://localhost:3000/messages/confirm/17
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:06:46) [GET]
+  Parameters: {"id"=>"17"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 17) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/confirm/17]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:06:52) [GET]
+  Parameters: {"id"=>"17"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 17) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 17[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=17]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:07:26) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:07:37) [POST]
+  Parameters: {"message"=>{"message"=>"Encrypting another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:07:37', 'fprsgyBT', NULL, '2010-08-22 13:07:37', 'å;´Hƒë<≈ﬂ˚˝Øè”)=\5ù2Ò¸ô,;x;Êì>;')[0m
+Redirected to http://localhost:3000/messages/confirm/18
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:07:37) [GET]
+  Parameters: {"id"=>"18"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/confirm/18]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:07:39) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+  [4;35;1mMessage Destroy (0.5ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 18[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 17ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=18]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:08:03) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (38.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:09:44) [GET]
+  Parameters: {"id"=>"18"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (88.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:09:46) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (37.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:09:46) [GET]
+  Parameters: {"id"=>"18"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (92.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:09:47) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:6:in `show'
+
+Rendered rescues/_trace (37.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:10:06) [GET]
+  Parameters: {"id"=>"18"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:7:in `show'
+
+Rendered rescues/_trace (91.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:10:08) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Message with ID=18):
+  app/controllers/messages_controller.rb:7:in `show'
+
+Rendered rescues/_trace (37.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:12:56) [GET]
+  Parameters: {"id"=>"18"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 18) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=18]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:12:56) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:13:43) [POST]
+  Parameters: {"message"=>{"message"=>"Jimmy cracked corn"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:13:43', 'eLSSE14r', NULL, '2010-08-22 13:13:43', 'ˆÚ*(ö1}Bè¯D«ıxÂß?Ö„	•ˇÃaÅF£p¢')[0m
+Redirected to http://localhost:3000/messages/confirm/19
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:13:43) [GET]
+  Parameters: {"id"=>"19"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 19) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/messages/confirm/19]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:13:45) [GET]
+  Parameters: {"id"=>"19"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 19) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 19[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/messages?id=19]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:13:49) [GET]
+  Parameters: {"id"=>"19"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 19) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=19]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:13:49) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:22:08) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 12, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:22:34) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:22:58) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 64ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:23:25) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:23:28) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:23:47) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:23:56) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:24:38) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 67ms (View: 59, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:24:43) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 21ms (View: 12, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:24:57) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:25:02) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:25:13) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:25:22) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:25:31) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:26:15) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:26:21) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:34:45) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:35:15) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 12, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:36:05) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:36:33) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:36:50) [POST]
+  Parameters: {"message"=>{"message"=>"this is my message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:36:50', 'feRkVrkb', NULL, '2010-08-22 13:36:50', 'OÁSõΩú!∂Èæ„B>˜∆q''‡cR„r´gy{5o')[0m
+Redirected to http://localhost:3000/messages/confirm/20
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:36:50) [GET]
+  Parameters: {"id"=>"20"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 20) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/20]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:36:52) [GET]
+  Parameters: {"id"=>"20"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 20) [0m
+  [4;36;1mMessage Destroy (0.4ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 20[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/messages?id=20]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:51:01) [GET]
+  Parameters: {"id"=>"20"}
+  [4;35;1mMessage Load (0.2ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 20) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=20]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:51:01) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:53:06) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+ERROR: compiling _run_erb_app47views47messages47new46html46erb RAISED compile error
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:9: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+@output_buffer.concat "  "; @output_buffer.concat(( s...
+                       ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:10: syntax error, unexpected kEND, expecting ')'
+ end ; @output_buffer.concat "    ...
+    ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:13: syntax error, unexpected kENSURE, expecting ')'
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:15: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47messages47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  form_for @message do |f| 
+@output_buffer.concat "  "; @output_buffer.concat(( f.text_area :message, 
+			:value => 'Enter a message you would like to encrypt...', 
+			:class => 'message',
+			:rows => 5,
+			:onfocus => "this.value == ''",
+			:onblur => "this.value == 'Enter a message you would like to encrypt...'",
+			#:onclick => "(this.value == 'Enter a message you would like to encrypt...') ? this.value = '' : this.value = 'Enter a message you would like to encrypt...' " ).to_s); @output_buffer.concat "<br/>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit" ).to_s); @output_buffer.concat "  \n"
+ end ; @output_buffer.concat "                                       \n"
+@output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/admin/Sites/kdqol/app/views/messages/new.html.erb:15:in `compile!'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `custom'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `respond'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/admin/Sites/kdqol/app/controllers/messages_controller.rb:17:in `new'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/admin/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Users/admin/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/admin/.gem/ruby/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:9: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+@output_buffer.concat "  "; @output_buffer.concat(( s...
+                       ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:10: syntax error, unexpected kEND, expecting ')'
+ end ; @output_buffer.concat "    ...
+    ^
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:13: syntax error, unexpected kENSURE, expecting ')'
+/Users/admin/Sites/kdqol/app/views/messages/new.html.erb:15: syntax error, unexpected kEND, expecting ')') on line #9 of app/views/messages/new.html.erb:
+6: 			:onfocus => "this.value == ''",
+7: 			:onblur => "this.value == 'Enter a message you would like to encrypt...'",
+8: 			#:onclick => "(this.value == 'Enter a message you would like to encrypt...') ? this.value = '' : this.value = 'Enter a message you would like to encrypt...' " %><br/>
+9:   <%= submit_tag "Encrypt message", :id => "submit", :name => "submit", :class => "form_submit" %>  
+10: <% end -%>                                       
+
+    app/views/messages/new.html.erb:15:in `compile!'
+    app/controllers/messages_controller.rb:17:in `new'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:53:23) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:53:37) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 20ms (View: 12, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:53:57) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:54:22) [POST]
+  Parameters: {"message"=>{"message"=>"Here is my riveting message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:54:22', 'yQMQM8qB', NULL, '2010-08-22 13:54:22', '@`∆î¶&wX¿È⁄2√∏◊Xr2•7Kïu÷–Q◊§πwÈ¸')[0m
+Redirected to http://localhost:3000/messages/confirm/21
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:54:22) [GET]
+  Parameters: {"id"=>"21"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/21]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:54:28) [GET]
+  Parameters: {"id"=>"21"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 21) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 21[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/messages?id=21]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:55:07) [GET]
+  Parameters: {"id"=>"21"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 21) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=21]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:55:07) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:55:13) [POST]
+  Parameters: {"message"=>{"message"=>"this is another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:55:13', 'vqzSMWNd', NULL, '2010-08-22 13:55:13', '?~k~Ô$?}ê•s8*Eˆv"¢˛+&¸Bºõ´1µ')[0m
+Redirected to http://localhost:3000/messages/confirm/22
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:55:13) [GET]
+  Parameters: {"id"=>"22"}
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 22) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/22]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:55:16) [GET]
+  Parameters: {"id"=>"22"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 22) [0m
+  [4;36;1mMessage Destroy (0.3ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 22[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://localhost/messages?id=22]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:56:07) [GET]
+  Parameters: {"id"=>"22"}
+  [4;35;1mMessage Load (0.1ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 22) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=22]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:56:07) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 08:56:16) [POST]
+  Parameters: {"message"=>{"message"=>"here's yet another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 13:56:16', 'x+c5bdNn', NULL, '2010-08-22 13:56:16', 'ıvKÓ§Ue‚ÛtJn
+oìΩß°Äò‹G_⁄GüWxu')[0m
+Redirected to http://localhost:3000/messages/confirm/23
+Completed in 60ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 08:56:16) [GET]
+  Parameters: {"id"=>"23"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/23]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 08:56:19) [GET]
+  Parameters: {"id"=>"23"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 23) [0m
+  [4;35;1mMessage Destroy (0.5ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 23[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 24ms (View: 12, DB: 1) | 200 OK [http://localhost/messages?id=23]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 08:56:22) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/messages/new]
+  [4;36;1mMessage Load (0.6ms)[0m   [0;1mSELECT * FROM "messages" ORDER BY messages.id DESC LIMIT 1[0m
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:11:13) [POST]
+  Parameters: {"message"=>{"message"=>"This is a test"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.6ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:11:13', 'h4DZ7jxo', NULL, '2010-08-22 14:11:13', 'œúœ¸Ü€ΩÇèWƒØø')[0m
+Redirected to http://localhost:3000/messages/confirm/24
+Completed in 44ms (DB: 1) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 09:11:13) [GET]
+  Parameters: {"id"=>"24"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 27ms (View: 18, DB: 0) | 200 OK [http://localhost/messages/confirm/24]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:11:47) [GET]
+  Parameters: {"id"=>"q"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 24) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 24[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 23ms (View: 12, DB: 1) | 200 OK [http://localhost/messages?id=q]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:11:51) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 21ms (View: 12, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:12:03) [POST]
+  Parameters: {"message"=>{"message"=>"OOGA BOOGA BABY!!!"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:12:03', 'yYckG1X6', NULL, '2010-08-22 14:12:03', 'ˆÇ‹L,É≤KÀHÔ''Æ4¶p+=$«<⁄%”!_3î')[0m
+Redirected to http://localhost:3000/messages/confirm/25
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 09:12:03) [GET]
+  Parameters: {"id"=>"25"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 60ms (View: 51, DB: 0) | 200 OK [http://localhost/messages/confirm/25]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:12:15) [GET]
+  Parameters: {"id"=>"r"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 25) [0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 25[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://localhost/messages?id=r]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:12:26) [GET]
+  Parameters: {"id"=>"a"}
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 9) [0m
+Redirected to http://localhost:3000/messages/new
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/messages?id=a]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:12:26) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:19:16) [POST]
+  Parameters: {"message"=>{"message"=>"this is my message after messing with the url"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;35;1mMessage Create (0.0ms)[0m   [0mSQLite3::SQLException: unrecognized token: "'f!Ñ’˚¥cÉºˆØ˘Jq…(˘◊nΩ˚ú¥r^@*„"ÑÖ¨ßï": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:19:16', 'ltMLhq0M', NULL, '2010-08-22 14:19:16', 'f!Ñ’˚¥cÉºˆØ˘Jq…(˘◊nΩ˚ú¥r^@*„"ÑÖ¨ßï jYva¶')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "'f!Ñ’˚¥cÉºˆØ˘Jq…(˘◊nΩ˚ú¥r^@*„"ÑÖ¨ßï": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:19:16', 'ltMLhq0M', NULL, '2010-08-22 14:19:16', 'f!Ñ’˚¥cÉºˆØ˘Jq…(˘◊nΩ˚ú¥r^@*„"ÑÖ¨ßï jYva¶')):
+  app/controllers/messages_controller.rb:25:in `create'
+
+Rendered rescues/_trace (100.9ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:19:25) [POST]
+  Parameters: {"message"=>{"message"=>"this is my message after messing with the url"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:19:25', '67/SMmQf', NULL, '2010-08-22 14:19:25', 'Í1=™é•8å$0:Ãf_};·(å¡˝Û˛dÓÙ°Pd!^“@±+ã:')[0m
+Redirected to http://localhost:3000/messages/confirm/26
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 09:19:25) [GET]
+  Parameters: {"id"=>"26"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 26) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/messages/confirm/26]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:19:29) [GET]
+  Parameters: {"id"=>"s"}
+Redirected to http://localhost:3000/messages/new
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/messages?id=s]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:19:29) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:19:52) [GET]
+  Parameters: {"id"=>"s"}
+Redirected to http://localhost:3000/messages/new
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/messages?id=s]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:19:52) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:20:03) [POST]
+  Parameters: {"message"=>{"message"=>"here's another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:20:03', 'Y8nhiegd', NULL, '2010-08-22 14:20:03', 'öÉ √L¢,∂´ÏÆÍèÎ[Zåq–ç8DâçXû¿Ì1s')[0m
+Redirected to http://localhost:3000/messages/confirm/27
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 09:20:03) [GET]
+  Parameters: {"id"=>"27"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 27) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/messages/confirm/27]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:20:05) [GET]
+  Parameters: {"id"=>"pK"}
+Redirected to http://localhost:3000/messages/new
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/messages?id=pK]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:20:05) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:20:57) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:21:02) [POST]
+  Parameters: {"message"=>{"message"=>"encrypting a message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mSQLite3::SQLException: unrecognized token: "'ó:˜$M˙f{Æﬁ	r®°ø≠ S@âkñ|[C ": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:21:02', 'n3t7JpEJ', NULL, '2010-08-22 14:21:02', 'ó:˜$M˙f{Æﬁ	r®°ø≠ S@âkñ|[C  M')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "'ó:˜$M˙f{Æﬁ	r®°ø≠ S@âkñ|[C ": INSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:21:02', 'n3t7JpEJ', NULL, '2010-08-22 14:21:02', 'ó:˜$M˙f{Æﬁ	r®°ø≠ S@âkñ|[C  M')):
+  app/controllers/messages_controller.rb:25:in `create'
+
+Rendered rescues/_trace (96.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-22 09:21:07) [POST]
+  Parameters: {"message"=>{"message"=>"encrypting a message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-22 14:21:07', 'XEfXDx6V', NULL, '2010-08-22 14:21:07', ' %§ƒZµ	ùñ{ˆs^ÈÚ<#∑ºÈfk⁄ŒÔé§u')[0m
+Redirected to http://localhost:3000/messages/confirm/28
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-22 09:21:07) [GET]
+  Parameters: {"id"=>"28"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 28) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/messages/confirm/28]
+
+
+Processing MessagesController#show (for 127.0.0.1 at 2010-08-22 09:21:12) [GET]
+  Parameters: {"id"=>"u"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 28) [0m
+  [4;36;1mMessage Destroy (0.3ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 28[0m
+Rendering template within layouts/application
+Rendering messages/show
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://localhost/messages?id=u]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-22 09:22:17) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20100819002923)
+Migrating to AddMessageHash (20100819003937)
+Migrating to AddMessageSalt (20100819004339)
+Migrating to RemoveMessageFromMessages (20100820142239)
+Migrating to AddShortUrlToMessage (20100822142507)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "messages" ADD "short_url" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100822142507')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mMessage Load (1.0ms)[0m   [0;1mSELECT * FROM "messages" [0m
+  [4;35;1mMessage Destroy (0.4ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 11[0m
+  [4;36;1mMessage Destroy (0.5ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 12[0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 13[0m
+  [4;36;1mMessage Destroy (0.3ms)[0m   [0;1mDELETE FROM "messages" WHERE "id" = 26[0m
+  [4;35;1mMessage Destroy (0.3ms)[0m   [0mDELETE FROM "messages" WHERE "id" = 27[0m
+  [4;36;1mMessage Load (0.2ms)[0m   [0;1mSELECT * FROM "messages" [0m
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:11:19) [POST]
+  Parameters: {"message"=>{"message"=>"debugging messages"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+#<Message:0x1a5921c>
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:11:19', NULL, '5aZiuyKi', NULL, '2010-08-24 11:11:19', 'î∏d	p¶0o‘è‚Åï+ÈÃ}6gmﬂzÕüs‚ˆÄ√A')[0m
+Redirected to http://localhost:3000/messages/confirm/29
+Completed in 35ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:11:19) [GET]
+  Parameters: {"id"=>"29"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 29) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/29]
+
+
+Processing MessagesController#new (for 127.0.0.1 at 2010-08-24 06:14:42) [GET]
+Rendering template within layouts/application
+Rendering messages/new
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/messages/new]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:14:51) [POST]
+  Parameters: {"message"=>{"message"=>"this is another gripping message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"WTtj7UHL", "user_id"=>nil, "message_hash"=>"[ER\270.\206IO\202$—	˘ÿn˚\212\232\213¿±\020≈Œ\034n\277\240Û0z˜ÈÁù\215\022\022V’o\255\004Im\326", "created_at"=>nil}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:14:51', NULL, 'WTtj7UHL', NULL, '2010-08-24 11:14:51', '[ER∏.ÜIOÇ$—	˘ÿn˚äöã¿±≈Œnø†Û0z˜ÈÁùçV’o≠Im÷')[0m
+Redirected to http://localhost:3000/messages/confirm/30
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:14:51) [GET]
+  Parameters: {"id"=>"30"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 30) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/30]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:15:54) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"8MJH1JM3", "user_id"=>nil, "message_hash"=>"Q\267\032\243\200\020\265.¡	?MM\206Àà", "created_at"=>nil}
+Does it have an id yet? 
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:15:54', NULL, '8MJH1JM3', NULL, '2010-08-24 11:15:54', 'Q∑£Äµ.¡	?MMÜÀà')[0m
+Redirected to http://localhost:3000/messages/confirm/31
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:15:54) [GET]
+  Parameters: {"id"=>"31"}
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 31) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 57ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/31]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:16:24) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"sXgyvHUX", "user_id"=>nil, "message_hash"=>"\037ÛM%}$\226‚åÆG\272≈&\242", "created_at"=>nil}
+
+NoMethodError (undefined method `id?' for #<Message:0x19e9bec>):
+  app/controllers/messages_controller.rb:25:in `create'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:17:20) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"DhoSwxzu", "user_id"=>nil, "message_hash"=>"a  \221\265_M\017€J\205]\276\n\262", "created_at"=>nil}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:17:20', NULL, 'DhoSwxzu', NULL, '2010-08-24 11:17:20', 'a ëµ_M€JÖ]æ
+≤')[0m
+Does it have an id yet? 32
+Redirected to http://localhost:3000/messages/confirm/32
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:17:20) [GET]
+  Parameters: {"id"=>"32"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 32) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/32]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:19:07) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"lmqzXEFG", "user_id"=>nil, "message_hash"=>"‚-˛ÔÈ\265\247\274 f\232h\256ı/  ", "created_at"=>nil}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:19:07', NULL, 'lmqzXEFG', NULL, '2010-08-24 11:19:07', '‚-˛ÔÈµßº föhÆı/')[0m
+Does it have an id yet? 33
+  [4;36;1mMessage Update (0.4ms)[0m   [0;1mUPDATE "messages" SET "short_url" = 'jb', "updated_at" = '2010-08-24 11:19:07' WHERE "id" = 33[0m
+Redirected to http://localhost:3000/messages/confirm/33
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:19:07) [GET]
+  Parameters: {"id"=>"33"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 33) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/messages/confirm/33]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:20:15) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"QZuWU/CU", "user_id"=>nil, "message_hash"=>"ÿ Ê`X\212k\001ı¨A\252\177ÍÈ ", "created_at"=>nil}
+  [4;36;1mMessage Create (0.4ms)[0m   [0;1mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:20:15', NULL, 'QZuWU/CU', NULL, '2010-08-24 11:20:15', 'ÿ Ê`Xäkı¨A™ÍÈ')[0m
+Does it have an id yet? 34
+  [4;35;1mMessage Update (0.4ms)[0m   [0mUPDATE "messages" SET "short_url" = 'jc', "updated_at" = '2010-08-24 11:20:15' WHERE "id" = 34[0m
+Redirected to http://localhost:3000/messages/confirm/34
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:20:15) [GET]
+  Parameters: {"id"=>"34"}
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 34) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/messages/confirm/34]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-08-24 06:30:52) [POST]
+  Parameters: {"message"=>{"message"=>"another message"}, "submit"=>"Encrypt message", "authenticity_token"=>"jQZJvwsXT+ZG5o0qRJ1q7Wd66wMgvndNvjb1VGnLRaU="}
+New message: {"updated_at"=>nil, "short_url"=>nil, "message_salt"=>"ZcHHalFJ", "user_id"=>nil, "message_hash"=>"‰Ñµ\261AY)œ’?bU\254\rﬁ", "created_at"=>nil}
+  [4;35;1mMessage Create (0.4ms)[0m   [0mINSERT INTO "messages" ("updated_at", "short_url", "message_salt", "user_id", "created_at", "message_hash") VALUES('2010-08-24 11:30:52', NULL, 'ZcHHalFJ', NULL, '2010-08-24 11:30:52', '‰Ñµ±AY)œ’?bU¨ﬁ')[0m
+Does it have an id yet? 35
+  [4;36;1mMessage Update (0.4ms)[0m   [0;1mUPDATE "messages" SET "short_url" = 'jd', "updated_at" = '2010-08-24 11:30:52' WHERE "id" = 35[0m
+Redirected to http://localhost:3000/messages/confirm/35
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/messages]
+
+
+Processing MessagesController#confirm (for 127.0.0.1 at 2010-08-24 06:30:52) [GET]
+  Parameters: {"id"=>"35"}
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 35) [0m
+Rendering template within layouts/application
+Rendering messages/confirm
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/messages/confirm/35]
